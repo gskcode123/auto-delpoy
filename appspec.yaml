@@ -2,9 +2,13 @@ version: 0.0
 os: linux
 files:
   - source: /
-    destination: /var/www/html/  # Or any path where you want to place the files
+    destination: /usr/share/nginx/html  # Default directory for Nginx web files
 hooks:
+  BeforeInstall:
+    - location: scripts/stop_nginx.sh
+      timeout: 300
+      runas: root
   AfterInstall:
-    - location: scripts/after_install.sh
+    - location: scripts/start_nginx.sh
       timeout: 300
       runas: root
