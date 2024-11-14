@@ -2,7 +2,7 @@ version: 0.0
 os: linux
 files:
   - source: /
-    destination: /usr/share/nginx/html  # Default directory for Nginx web files
+    destination: /var/www/html  # Default directory for Nginx web files
 hooks:
   BeforeInstall:
     - location: scripts/stop_nginx.sh
